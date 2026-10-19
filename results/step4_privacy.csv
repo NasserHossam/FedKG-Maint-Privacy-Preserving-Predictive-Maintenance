@@ -1,0 +1,2 @@
+sigma,clip,seed,best_round,epsilon,own_rmse,heldout_rmse,heldout_score
+0.0,1.0,0,5,inf,31.468454996744793,42.03236389160156,24003.2265625

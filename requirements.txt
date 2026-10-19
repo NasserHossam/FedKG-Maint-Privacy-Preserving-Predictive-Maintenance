@@ -1,0 +1,10 @@
+numpy
+pandas
+torch
+scikit-learn
+networkx
+scipy
+matplotlib
+# optional, only for the LLM explanation comparison (step5_explain.py --llm ...)
+# anthropic
+# openai

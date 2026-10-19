@@ -1,0 +1,328 @@
+{
+ "nodes": [
+  {
+   "id": "FD002",
+   "type": "Factory",
+   "conditions": 6
+  },
+  {
+   "id": "HPC degradation",
+   "type": "FailureMode"
+  },
+  {
+   "id": "High-Pressure Compressor",
+   "type": "Component"
+  },
+  {
+   "id": "Engine core",
+   "type": "Component"
+  },
+  {
+   "id": "Schedule a borescope inspection of the high-pressure compressor",
+   "type": "Action"
+  },
+  {
+   "id": "Plan HPC blade cleaning or replacement at the next shop visit",
+   "type": "Action"
+  },
+  {
+   "id": "s2",
+   "type": "Sensor",
+   "alias": "T24",
+   "desc": "LPC outlet temperature"
+  },
+  {
+   "id": "Low-Pressure Compressor",
+   "type": "Component"
+  },
+  {
+   "id": "s3",
+   "type": "Sensor",
+   "alias": "T30",
+   "desc": "HPC outlet temperature"
+  },
+  {
+   "id": "s4",
+   "type": "Sensor",
+   "alias": "T50",
+   "desc": "LPT outlet temperature"
+  },
+  {
+   "id": "Low-Pressure Turbine",
+   "type": "Component"
+  },
+  {
+   "id": "s7",
+   "type": "Sensor",
+   "alias": "P30",
+   "desc": "HPC outlet pressure"
+  },
+  {
+   "id": "s8",
+   "type": "Sensor",
+   "alias": "Nf",
+   "desc": "physical fan speed"
+  },
+  {
+   "id": "Fan",
+   "type": "Component"
+  },
+  {
+   "id": "s9",
+   "type": "Sensor",
+   "alias": "Nc",
+   "desc": "physical core speed"
+  },
+  {
+   "id": "s11",
+   "type": "Sensor",
+   "alias": "Ps30",
+   "desc": "HPC outlet static pressure"
+  },
+  {
+   "id": "s12",
+   "type": "Sensor",
+   "alias": "phi",
+   "desc": "fuel-flow ratio at the HPC outlet"
+  },
+  {
+   "id": "s13",
+   "type": "Sensor",
+   "alias": "NRf",
+   "desc": "corrected fan speed"
+  },
+  {
+   "id": "s14",
+   "type": "Sensor",
+   "alias": "NRc",
+   "desc": "corrected core speed"
+  },
+  {
+   "id": "s15",
+   "type": "Sensor",
+   "alias": "BPR",
+   "desc": "bypass ratio"
+  },
+  {
+   "id": "s17",
+   "type": "Sensor",
+   "alias": "htBleed",
+   "desc": "bleed enthalpy"
+  },
+  {
+   "id": "Bleed system",
+   "type": "Component"
+  },
+  {
+   "id": "s20",
+   "type": "Sensor",
+   "alias": "W31",
+   "desc": "HPT coolant bleed"
+  },
+  {
+   "id": "High-Pressure Turbine",
+   "type": "Component"
+  },
+  {
+   "id": "s21",
+   "type": "Sensor",
+   "alias": "W32",
+   "desc": "LPT coolant bleed"
+  }
+ ],
+ "edges": [
+  {
+   "source": "FD002",
+   "target": "HPC degradation",
+   "rel": "EXPERIENCES"
+  },
+  {
+   "source": "HPC degradation",
+   "target": "High-Pressure Compressor",
+   "rel": "AFFECTS"
+  },
+  {
+   "source": "HPC degradation",
+   "target": "Engine core",
+   "rel": "AFFECTS"
+  },
+  {
+   "source": "HPC degradation",
+   "target": "Schedule a borescope inspection of the high-pressure compressor",
+   "rel": "RECOMMENDS"
+  },
+  {
+   "source": "HPC degradation",
+   "target": "Plan HPC blade cleaning or replacement at the next shop visit",
+   "rel": "RECOMMENDS"
+  },
+  {
+   "source": "High-Pressure Compressor",
+   "target": "s3",
+   "rel": "MONITORED_BY"
+  },
+  {
+   "source": "High-Pressure Compressor",
+   "target": "s7",
+   "rel": "MONITORED_BY"
+  },
+  {
+   "source": "High-Pressure Compressor",
+   "target": "s11",
+   "rel": "MONITORED_BY"
+  },
+  {
+   "source": "High-Pressure Compressor",
+   "target": "s12",
+   "rel": "MONITORED_BY"
+  },
+  {
+   "source": "Engine core",
+   "target": "s9",
+   "rel": "MONITORED_BY"
+  },
+  {
+   "source": "Engine core",
+   "target": "s14",
+   "rel": "MONITORED_BY"
+  },
+  {
+   "source": "s2",
+   "target": "FD002",
+   "rel": "WEAR_TREND_AT",
+   "direction": "increases",
+   "strength": 0.0
+  },
+  {
+   "source": "Low-Pressure Compressor",
+   "target": "s2",
+   "rel": "MONITORED_BY"
+  },
+  {
+   "source": "s3",
+   "target": "FD002",
+   "rel": "WEAR_TREND_AT",
+   "direction": "increases",
+   "strength": 0.03
+  },
+  {
+   "source": "s4",
+   "target": "FD002",
+   "rel": "WEAR_TREND_AT",
+   "direction": "increases",
+   "strength": 0.05
+  },
+  {
+   "source": "Low-Pressure Turbine",
+   "target": "s4",
+   "rel": "MONITORED_BY"
+  },
+  {
+   "source": "Low-Pressure Turbine",
+   "target": "s21",
+   "rel": "MONITORED_BY"
+  },
+  {
+   "source": "s7",
+   "target": "FD002",
+   "rel": "WEAR_TREND_AT",
+   "direction": "decreases",
+   "strength": 0.01
+  },
+  {
+   "source": "s8",
+   "target": "FD002",
+   "rel": "WEAR_TREND_AT",
+   "direction": "decreases",
+   "strength": 0.0
+  },
+  {
+   "source": "Fan",
+   "target": "s8",
+   "rel": "MONITORED_BY"
+  },
+  {
+   "source": "Fan",
+   "target": "s13",
+   "rel": "MONITORED_BY"
+  },
+  {
+   "source": "Fan",
+   "target": "s15",
+   "rel": "MONITORED_BY"
+  },
+  {
+   "source": "s9",
+   "target": "FD002",
+   "rel": "WEAR_TREND_AT",
+   "direction": "increases",
+   "strength": 0.02
+  },
+  {
+   "source": "s11",
+   "target": "FD002",
+   "rel": "WEAR_TREND_AT",
+   "direction": "increases",
+   "strength": 0.05
+  },
+  {
+   "source": "s12",
+   "target": "FD002",
+   "rel": "WEAR_TREND_AT",
+   "direction": "decreases",
+   "strength": 0.01
+  },
+  {
+   "source": "s13",
+   "target": "FD002",
+   "rel": "WEAR_TREND_AT",
+   "direction": "decreases",
+   "strength": 0.0
+  },
+  {
+   "source": "s14",
+   "target": "FD002",
+   "rel": "WEAR_TREND_AT",
+   "direction": "increases",
+   "strength": 0.05
+  },
+  {
+   "source": "s15",
+   "target": "FD002",
+   "rel": "WEAR_TREND_AT",
+   "direction": "increases",
+   "strength": 0.04
+  },
+  {
+   "source": "s17",
+   "target": "FD002",
+   "rel": "WEAR_TREND_AT",
+   "direction": "increases",
+   "strength": 0.03
+  },
+  {
+   "source": "Bleed system",
+   "target": "s17",
+   "rel": "MONITORED_BY"
+  },
+  {
+   "source": "s20",
+   "target": "FD002",
+   "rel": "WEAR_TREND_AT",
+   "direction": "decreases",
+   "strength": 0.01
+  },
+  {
+   "source": "High-Pressure Turbine",
+   "target": "s20",
+   "rel": "MONITORED_BY"
+  },
+  {
+   "source": "s21",
+   "target": "FD002",
+   "rel": "WEAR_TREND_AT",
+   "direction": "decreases",
+   "strength": 0.01
+  }
+ ]
+}
