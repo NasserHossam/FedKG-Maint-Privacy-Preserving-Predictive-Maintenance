@@ -44,6 +44,7 @@ python step2_baselines.py                      # local-only and centralized refe
 python step3_federated.py                      # FedAvg and FedProx (40 rounds)
 python step4_privacy.py --clip 3.0 --sigmas 0 0.05 0.2 0.5 --out results/step4_privacy_clip3.csv
 python step5_explain.py                        # knowledge graphs and explanations
+python step8_scaling.py --central              # number of factories and client heterogeneity
 
 # Azure pipeline
 python azure_prep.py --data_dir .
@@ -69,6 +70,7 @@ If you change `azure_prep.py`, delete `processed/azure_features.npz` so features
 | `step3_federated.py` | FedAvg and FedProx |
 | `step4_privacy.py` | client-level differential privacy with epsilon accounting |
 | `kg_explain.py`, `step5_explain.py` | knowledge graph, explanations, grounding and faithfulness checks |
+| `step8_scaling.py` | effect of the number of factories and client composition on FedAvg |
 | `azure_prep.py`, `step6_azure.py` | Azure features, labels and federated experiments |
 | `step7_report_tables.py` | report tables, significance tests, figures |
 | `results/`, `kg/` | result tables, figures, per-factory knowledge graphs |
